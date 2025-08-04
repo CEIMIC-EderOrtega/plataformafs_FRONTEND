@@ -1,0 +1,37 @@
+<div class="flex flex-col min-h-screen bg-gray-100">
+  <div class="flex flex-col md:flex-row flex-grow">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div
+      [ngClass]="{
+        'order-1 md:order-1': !showForgotPassword,
+        'order-2 md:order-2': showForgotPassword
+      }"
+      class="relative w-full md:w-7/12 flex items-center justify-center overflow-hidden mi-div"
+    >
+      <info-page></info-page>
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div
+      [ngClass]="{
+        'order-2 md:order-2': !showForgotPassword,
+        'order-1 md:order-1': showForgotPassword
+      }"
+      class="w-full md:w-5/12 flex items-center justify-center p-8 bg-no-repeat bg-center bg-cover min-h-screen md:min-h-0"
+      style="background-image: url('assets/resources/images/FondoCeimic.png');"
+    >
+
+      <ng-container *ngIf="!showForgotPassword">
+        <login-page (forgotClicked)="toggleMode()"></login-page>
+      </ng-container>
+      <ng-container *ngIf="showForgotPassword">
+        <app-forgot-password-page (forgotClicked)="toggleMode()"></app-forgot-password-page>
+      </ng-container>
+
+    </div>
+
+  </div>
+</div>
+
+<!--  <router-outlet /> -->

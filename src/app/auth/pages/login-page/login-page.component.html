@@ -1,0 +1,92 @@
+
+<form
+  class="flex flex-col gap-2"
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="bg-gray-400/40 backdrop-blur-md rounded-2xl shadow-2xl p-8 sm:p-12 w-full max-w-md">
+      <div class="flex items-center justify-center gap-4 mb-4 -mt-3">
+          <div class="w-16 h-16 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
+              <img src="assets/resources/icons/isotipo_Ceimic_color_IN_400x400.png" alt="Logo" class="w-full h-full object-cover">
+          </div>
+          <h1 class="font-bold text-3xl text-blue-900!">Acceso</h1>
+      </div>
+
+      <p class="text-1xl text-blue-900!">Bienvenido a su <strong>Plataforma</strong>, inicia sesión para continuar.</p>
+
+      <p-iconfield class="p-input-icon-left mb-4">
+        <p-inputicon class="pi pi-user"></p-inputicon>
+        <input
+          type="text"
+          pInputText
+          placeholder="Correo electrónico"
+          formControlName="email"
+          class="p-inputtext p-component w-full"
+          formControlName="email"
+        />
+      </p-iconfield>
+
+      <p-iconfield class="p-input-icon-left mb-4">
+          <p-inputicon class="pi pi-key"></p-inputicon>
+          <input
+            type="password"
+            pInputText
+            placeholder="Contraseña"
+            class="p-inputtext p-component w-full"
+            formControlName="password"
+          >
+      </p-iconfield>
+
+      <span
+        class="text-1xl text-gray-900 underline font-bold cursor-pointer block text-right mb-4"
+        (click)="onForgotPasswordClick()"
+      >
+        ¿Has olvidado tu contraseña?
+      </span>
+
+      <button
+          type="submit"
+          pButton
+          pRipple
+          label="Iniciar sesión"
+          class="w-full bg-blue-600 text-white font-semibold rounded-xl py-3 shadow-md hover:bg-blue-800 transition duration-300 border border-blue-900"
+      >
+      </button>
+
+  </div>
+
+</form>
+
+
+<div style="min-height: 3rem; position: relative;">
+  <p-message
+      *ngIf="hasError()"
+      [life]="3000"
+      severity="error"
+      icon="pi pi-times-circle"
+      styleClass="mb-2 absolute top-0 left-0 w-full"
+  >
+    Acceso fallo! Ingrese datos correctos.
+  </p-message>
+</div>
+
+
+
+<div class="mt-6 w-full max-w-md flex flex-wrap gap-6 justify-center items-center px-6 py-2 bg-gray-400/40 backdrop-blur-md rounded-2xl shadow-lg md:hidden">
+  <a href="https://www.ceimic.com" target="_blank" rel="noopener noreferrer"
+    class="flex-shrink-0 w-15 h-15 flex justify-center items-center bg-white rounded-full shadow-md">
+    <img src="assets/resources/icons/logo_ceimic_color_pequenio.png" alt="CEIMIC" class="w-full h-full object-contain">
+  </a>
+  <a href="https://www.grupofs.com" target="_blank" rel="noopener noreferrer"
+    class="flex-shrink-0 w-15 h-15 flex justify-center items-center bg-gray-400/80 rounded-full shadow-md">
+    <img src="assets/resources/icons/logo_fs_color_pequenio.png" alt="FS" class="w-full h-full object-contain">
+  </a>
+  <a href="https://www.fscertificaciones.com" target="_blank" rel="noopener noreferrer"
+    class="flex-shrink-0 w-15 h-15 flex justify-center items-center bg-gray-400/80 rounded-full shadow-md">
+    <img src="assets/resources/icons/logo_fsc_color_pequenio.png" alt="FSC" class="w-full h-full object-contain">
+  </a>
+  <a href="#" target="_blank" rel="noopener noreferrer"
+    class="flex-shrink-0 w-15 h-15 flex justify-center items-center bg-gray-400/80 rounded-full shadow-md">
+    <img src="assets/resources/icons/logo_global_color_pequenio.png" alt="FS Global Group LLC" class="w-full h-full object-contain">
+  </a>
+</div>

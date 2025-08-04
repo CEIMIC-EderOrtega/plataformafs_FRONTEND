@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@use "primeicons/primeicons.css";
+
+@plugin 'tailwindcss-primeui';
+
+@layer tailwind, primeng;
+
+/* Layout */
+@import "assets/layout/styles/layout/layout.scss";
+
+.mi-div {
+  background: linear-gradient(to top, rgb(255, 255, 255), rgb(213, 181, 235), rgb(176, 134, 228), rgb(112, 31, 206), rgb(62, 3, 129));
+}
+
+.my-overlay-azuloscuro {
+  background-color: #1e3a8a;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.topbar-menubutton {
+  cursor: pointer;
+}
+
+.topbar-menu-panel {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+.custom-overlay-panel {
+    background-color: #ffffff !important; // blanco puro
+    color: #333; // texto oscuro para contraste
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); // sombra suave
+    border-radius: 8px;
+    padding: 0; // eliminar espacios extra si deseas
+}
+
+.layout-topbar .topbar-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 1rem;
+    margin-left: auto;
+}

@@ -1,0 +1,58 @@
+<div class="layout-topbar">
+    <a class="app-logo" routerLink="/">
+        <img alt="app logo" [src]="logo">
+        <span class="app-name">CEIMIC</span>
+    </a>
+
+    <button #menubutton class="topbar-menubutton button pointer-button" type="button" (click)="onMenuButtonClick()">
+        <span></span>
+    </button>
+
+    <ul class="topbar-menu">
+        <li *ngFor="let item of tabs; let i = index">
+            <a [routerLink]="item.routerLink" routerLinkActive="active-route" [routerLinkActiveOptions]="item.routerLinkActiveOptions||{paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored'}"
+                [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [preserveFragment]="item.preserveFragment!"
+                [skipLocationChange]="item.skipLocationChange!" [replaceUrl]="item.replaceUrl!" [state]="item.state" [queryParams]="item.queryParams">
+                <span>{{item.label}}</span>
+            </a>
+            <i class="pi pi-times" (click)="removeTab($event, item, i)"></i>
+        </li>
+        <li *ngIf="!tabs || tabs.length === 0" class="topbar-menu-empty">
+            <span class="text-2xl font-bold">Bienvenido :: &nbsp;</span>
+            <span class="text-2xl text-muted-color"> Eder Ortega </span>
+        </li>
+    </ul>
+    <div class="topbar-actions">
+      <div class="topbar-profile">
+        <button class="topbar-profile-button" type="button" (click)="profileMenu.toggle($event)">
+            <img alt="avatar" src="assets/layout/images/avatar.png">
+            <span class="profile-details">
+                <span class="profile-name">Eder Ortega</span>
+                <span class="profile-job">Developer</span>
+            </span>
+            <i class="pi pi-angle-down"></i>
+        </button>
+
+        <p-overlayPanel #profileMenu [dismissable]="true" [showCloseIcon]="false" styleClass="topbar-menu-panel custom-overlay-panel">
+          <ul class="list-none p-3 m-0 border-round shadow-2 w-full sm:w-12rem">
+              <li>
+                  <a
+                  [routerLink]="'/main/dashcliente'"
+                  pRipple
+                  class="flex p-2 border-round align-items-center hover:surface-hover transition-colors transition-duration-150 cursor-pointer">
+                      <i class="pi pi-user mr-3"></i>
+                      <span>Perfil</span>
+                  </a>
+                  <a
+                  [routerLink]="'/main/dashcliente'"
+                  pRipple
+                  class="flex p-2 border-round align-items-center hover:surface-hover transition-colors transition-duration-150 cursor-pointer">
+                      <i class="pi pi-power-off mr-3"></i>
+                      <span>Desconectar</span>
+                  </a>
+              </li>
+          </ul>
+        </p-overlayPanel>
+      </div>
+    </div>
+</div>
