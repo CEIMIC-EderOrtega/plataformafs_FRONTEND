@@ -11,7 +11,7 @@ import { PrimeNG } from 'primeng/config';
 export class InfoPageComponent implements OnInit, AfterViewInit {
 
   @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
-  backgroundType: 'video' | 'imagen' | 'texto' = 'texto';
+  backgroundType: 'video' | 'imagen' | 'texto' = 'video';
   showPlayButton = false;
 
   constructor(private primeng: PrimeNG) {}
